@@ -1,6 +1,6 @@
 function Header() {
   const date = new Date();
-  const today = `${date.getDay() < 10 ? "0" + date.getDay() : date.getDay()}`;
+  const today = `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
   const month = `${date.getMonth() < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1}`;
   const year = date.getFullYear();
   const dateFomated = `${today}/${month}/${year}`;
