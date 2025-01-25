@@ -1,9 +1,11 @@
-/* eslint-disable react/prop-types */
 import { CirclePlus } from "lucide-react";
 import { CircleMinus } from "lucide-react";
 import { Trash2 } from "lucide-react";
+import { useSelector } from "react-redux";
 
-function CandiesList({ candies, setCandies }) {
+function CandiesList() {
+  const candies = useSelector((state) => state.candies.value);
+
   return (
     <tbody>
       {candies.map((candy) => (
