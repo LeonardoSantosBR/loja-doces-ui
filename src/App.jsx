@@ -13,7 +13,7 @@ function App() {
       <div className="w-screen h-screen">
         <Header />
         <div className="w-screen h-[80%] bg-[#E6E6E6]">
-          <div className=" w-screen h-[90%] p-2">
+          <div className="w-screen h-[90%] p-2">
             <button
               className="w-32 h-12 bg-green-500 rounded mr-6"
               onClick={() => dispatch(turn())}
