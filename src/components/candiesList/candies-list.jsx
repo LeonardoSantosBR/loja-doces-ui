@@ -8,7 +8,7 @@ function CandiesList() {
 
   return (
     <tbody>
-      {candies.map((candy) => (
+      {candies?.map((candy) => (
         <tr key={candy.id} className="text-center">
           <td className="border border-gray-300 px-4 py-2 font-bold">
             {candy.nome}

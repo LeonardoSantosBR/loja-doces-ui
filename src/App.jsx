@@ -25,7 +25,7 @@ function App() {
         <div className="w-screen h-[10%] bg-white flex items-center justify-between">
           <p className="text-2xl font-bold font-sans ml-4">TOTAL: 12,40</p>
           <button className="w-[30%] h-12 bg-red-500 rounded mr-6">
-            <p className="text-xl   text-white">Finalizar</p>
+            <p className="text-xl   text-white">finalizar</p>
           </button>
         </div>
         {isCandyModalOpen && <NewCandy />}
