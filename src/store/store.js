@@ -1,14 +1,17 @@
+//configs
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore } from "redux-persist";
+
+//Reducers
+import candiesPersistedReducer from "../persist/reducers/candies-persist-reducer";
 import isCandyModalOpenReducer from "../slices/isCandyModalOpen.slice";
-import { persistStore } from 'redux-persist';
-import { CandiesPersistedReducer } from "../persist/reducers/candies-persist-reducer";
 
 const store = configureStore({
   reducer: {
-    candies: CandiesPersistedReducer,
+    candies: candiesPersistedReducer,
     isCandyModalOpen: isCandyModalOpenReducer,
   },
 });
- 
+
 const persistor = persistStore(store);
 export { store, persistor };
