@@ -12,6 +12,9 @@ function NewCandy() {
           <div className="w-[100%] h-[10%] p-1 flex justify-end">
             <X onClick={()=> dispatch(turn())}/>
           </div>
+          <div className="w-[100%] h-[100%] bg-slate-700">
+            
+          </div>
         </div>
       </div>
     </>
