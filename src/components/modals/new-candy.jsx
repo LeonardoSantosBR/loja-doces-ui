@@ -19,7 +19,6 @@ function NewCandy() {
   const validateValues = (values) => {
     const errors = {};
     if (!values.nome) errors.nome = "Obrigatório";
-    if (!values.quantidade) errors.nome = "Obrigatório";
     if (!values.preço) errors.preço = "Obrigatório";
     return errors;
   };
@@ -33,7 +32,7 @@ function NewCandy() {
           </div>
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
-              initialValues={{ nome: "", quantidade: null, preço: null }}
+              initialValues={{ nome: "", quantidade: 0, preço: null }}
               validate={validateValues}
               onSubmit={handleCreateNewCandy}
             >
@@ -42,7 +41,6 @@ function NewCandy() {
                 handleChange,
                 handleBlur,
                 handleSubmit,
-                isSubmitting,
                 errors,
                 touched,
               }) => (
@@ -59,7 +57,16 @@ function NewCandy() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.nome}
-                        className="w-[100%] p-2"
+                        className={`
+                          w-full 
+                          p-2 
+                          border
+                           outline-none 
+                           ${
+                             errors.nome && touched.nome
+                               ? "border-red-600 border-y-2"
+                               : "border-gray-300"
+                           } rounded`}
                       />
                     </div>
                     <div className="mb-4">
@@ -69,11 +76,16 @@ function NewCandy() {
                       <InputNewCandy
                         type="number"
                         name="quantidade"
-                        placeholder="0"
+                        min={0}
+                        max={100}                        
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.quantidade}
-                        className="w-[100%] p-2 appearance-auto"
+                        className={`w-full p-2 border outline-none ${
+                          errors.quantidade && touched.quantidade
+                            ? "border-red-600 border-y-2"
+                            : "border-gray-300"
+                        } rounded`}
                       />
                     </div>
                     <div className="mb-4">
@@ -85,9 +97,13 @@ function NewCandy() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.preço}
-                        className="w-[100%] p-2"
                         placeholder="R$ 00,00"
                         maskPlaceholder={null}
+                        className={`w-full p-2 border outline-none ${
+                          errors.preço && touched.preço
+                            ? "border-red-600 border-y-2"
+                            : "border-gray-300"
+                        } rounded`}
                       />
                     </div>
                   </div>
