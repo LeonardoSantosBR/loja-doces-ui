@@ -1,8 +1,9 @@
-# React + Vite
+# Projeto social para lojistas de doces
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tive a ideia inicial de criar esse projeto para automatizar um caderno de anotações de vendas de doces da minha igreja. Nesse caderno digital, é possível adicionar os doces que estão sendo vendidos no dia e a quantidade de cada um, fazendo o cálculo total de arrecadação automaticamente.
 
-Currently, two official plugins are available:
+## Listagem dos doces registrados
+![Image](https://github.com/user-attachments/assets/050d26fa-b36f-416c-af07-7c36a4b29dce)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tela de adicionar doce
+![Image](https://github.com/user-attachments/assets/351b1e11-a3d7-49ff-a6b7-975a033cfa48)
