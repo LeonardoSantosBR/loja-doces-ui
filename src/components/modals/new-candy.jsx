@@ -1,10 +1,26 @@
 import { X } from "lucide-react";
 import { useDispatch } from "react-redux";
+import { addCandy } from "../../slices/candies.slice";
 import { turn } from "../../slices/isCandyModalOpen.slice";
 import { Formik } from "formik";
+import InputMask from "react-input-mask";
+
 
 function NewCandy() {
   const dispatch = useDispatch();
+
+  const handleCreateNewCandy = (values, { setSubmitting }) => {
+    dispatch(turn());
+    dispatch(addCandy(values));
+    setSubmitting(false);
+  };
+
+  const validateValues = (values) => {
+    const errors = {};
+    if (!values.nome) errors.nome = "Obrigatório";
+    if (!values.preço) errors.preço = "Obrigatório";
+    return errors;
+  };
 
   return (
     <>
@@ -15,24 +31,9 @@ function NewCandy() {
           </div>
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
-              initialValues={{ nome: "", quantidade: 0, preço: 0.0 }}
-              validate={(values) => {
-                const errors = {};
-                if (!values.nome) {
-                  errors.nome = "Obrigatório";
-                }
-                if (!values.quantidade) {
-                  errors.quantidade = "Obrigatório";
-                }
-                if (!values.preço) {
-                  errors.preço = "Obrigatório";
-                }
-                return errors;
-              }}
-              onSubmit={(values, { setSubmitting }) => {
-                //criar o objeto no state global
-                setSubmitting(false);
-              }}
+              initialValues={{ nome: "", quantidade: null, preço: null }}
+              validate={validateValues}
+              onSubmit={handleCreateNewCandy}
             >
               {({
                 values,
@@ -56,7 +57,7 @@ function NewCandy() {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.nome}
-                        className="w-[100%] p-1"
+                        className="w-[100%] p-2"
                       />
                     </div>
                     <div className="mb-4">
@@ -66,28 +67,33 @@ function NewCandy() {
                       <input
                         type="number"
                         name="quantidade"
-                        min={1}
-                        max={50}
+                        placeholder="0"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.quantidade}
-                        className="w-[100%] p-1"
+                        className="w-[100%] p-2 appearance-auto"
                       />
                     </div>
                     <div className="mb-4">
                       <h3 className="text-gray-950 text-lg font-bold">Preço</h3>
-                      <input
-                        type="text"
+                      <InputMask
+                        type="string"
                         name="preço"
+                        mask="R$ 99.99"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.preço}
-                        className="w-[100%] p-1"
+                        className="w-[100%] p-2"
+                        placeholder="R$ 00,00"
+                        maskPlaceholder={null}
                       />
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <button className="w-[30%] h-12 bg-blue-700 rounded mr-6">
+                    <button
+                      type="submit"
+                      className="w-[30%] h-12 bg-blue-700 rounded mr-6"
+                    >
                       <p className="text-lg text-white">Criar</p>
                     </button>
                   </div>

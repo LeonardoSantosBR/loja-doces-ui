@@ -11,6 +11,10 @@ const store = configureStore({
     candies: candiesPersistedReducer,
     isCandyModalOpen: isCandyModalOpenReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 const persistor = persistStore(store);
