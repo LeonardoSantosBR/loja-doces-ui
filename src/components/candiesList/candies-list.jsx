@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   incrementQuantity,
   decrementQuantity,
+  removeCandy,
 } from "../../slices/candies.slice";
 
 function CandiesList() {
@@ -36,7 +37,12 @@ function CandiesList() {
                 className="cursor-pointer"
                 onClick={() => dispatch(decrementQuantity(candy))}
               />
-              <Trash2 color="#ff0000" size={24} className="cursor-pointer" />
+              <Trash2
+                color="#ff0000"
+                size={24}
+                className="cursor-pointer"
+                onClick={() => dispatch(removeCandy(candy))}
+              />
             </div>
           </td>
         </tr>

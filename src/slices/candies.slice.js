@@ -35,8 +35,10 @@ export const candiesSlice = createSlice({
         }
       }
     },
-    removeCandy: (state) => {
-      //removerá o doce selecionado....
+    removeCandy: (state, actions) => {
+      const { id } = actions.payload;
+      const newList = state.value?.filter((vl) => vl.id !== id);
+      state.value = newList;
     },
   },
 });
