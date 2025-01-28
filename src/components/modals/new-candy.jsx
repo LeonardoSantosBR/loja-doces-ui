@@ -4,7 +4,8 @@ import { addCandy } from "../../slices/candies.slice";
 import { turn } from "../../slices/isCandyModalOpen.slice";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
-
+import CreateNewCandy from "../buttons/create-new-candy";
+import InputNewCandy from "../inputs/input-new-candy";
 
 function NewCandy() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function NewCandy() {
   const validateValues = (values) => {
     const errors = {};
     if (!values.nome) errors.nome = "Obrigatório";
+    if (!values.quantidade) errors.nome = "Obrigatório";
     if (!values.preço) errors.preço = "Obrigatório";
     return errors;
   };
@@ -50,7 +52,7 @@ function NewCandy() {
                       <h3 className="text-gray-950 text-lg font-bold">
                         Nome do doce
                       </h3>
-                      <input
+                      <InputNewCandy
                         type="text"
                         name="nome"
                         placeholder="Ex: halls"
@@ -64,7 +66,7 @@ function NewCandy() {
                       <h3 className="text-gray-950 text-lg font-bold">
                         Quantidade
                       </h3>
-                      <input
+                      <InputNewCandy
                         type="number"
                         name="quantidade"
                         placeholder="0"
@@ -90,12 +92,7 @@ function NewCandy() {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <button
-                      type="submit"
-                      className="w-[30%] h-12 bg-blue-700 rounded mr-6"
-                    >
-                      <p className="text-lg text-white">Criar</p>
-                    </button>
+                    <CreateNewCandy />
                   </div>
                 </form>
               )}
