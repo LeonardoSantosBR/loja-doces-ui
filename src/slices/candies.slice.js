@@ -11,19 +11,38 @@ export const candiesSlice = createSlice({
       const id = uuidv4();
       const { nome, quantidade, preço } = actions.payload;
 
-      state.value.push({
+      state.value?.push({
         id,
         nome,
         quantidade,
         preço,
       });
     },
-
-    removeCandy: (state) => {
-      //removerá o doce selecionado....
+    incrementQuantity: (state, actions) => {
+      const { id } = actions.payload;
+      for (const candy of state.value) {
+        if (candy.id === id) {
+          candy.quantidade += 1;
+        }
+      }
+    },
+    decrementQuantity: (state, actions) => {
+      const { id } = actions.payload;
+      for (const candy of state.value) {
+        if (candy.quantidade == 0) return;
+        if (candy.id === id) {
+          candy.quantidade -= 1;
+        }
+      }
+    },
+    removeCandy: (state, actions) => {
+      const { id } = actions.payload;
+      const newList = state.value?.filter((vl) => vl.id !== id);
+      state.value = newList;
     },
   },
 });
 
-export const { addCandy, removeCandy } = candiesSlice.actions;
+export const { addCandy, incrementQuantity, decrementQuantity, removeCandy } =
+  candiesSlice.actions;
 export default candiesSlice.reducer;
