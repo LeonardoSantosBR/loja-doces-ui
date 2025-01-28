@@ -10,7 +10,6 @@ export const candiesSlice = createSlice({
     addCandy: (state, actions) => {
       const id = uuidv4();
       const { nome, quantidade, preço } = actions.payload;
-
       state.value?.push({
         id,
         nome,
@@ -40,9 +39,18 @@ export const candiesSlice = createSlice({
       const newList = state.value?.filter((vl) => vl.id !== id);
       state.value = newList;
     },
+    resetStore: (state) => {
+      state.value = [];
+    },
   },
 });
 
-export const { addCandy, incrementQuantity, decrementQuantity, removeCandy } =
-  candiesSlice.actions;
+export const {
+  addCandy,
+  incrementQuantity,
+  decrementQuantity,
+  removeCandy,
+  resetStore,
+} = candiesSlice.actions;
+
 export default candiesSlice.reducer;
