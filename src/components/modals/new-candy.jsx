@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { addCandy } from "../../slices/candies.slice";
-import { turn } from "../../slices/isCandyModalOpen.slice";
+import { addCandy } from "../../redux/slices/candies.slice";
+import { turn } from "../../redux/slices/isCandyModalOpen.slice";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import CreateNewCandy from "../buttons/create-new-candy";
