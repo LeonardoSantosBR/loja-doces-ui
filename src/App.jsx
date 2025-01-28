@@ -17,10 +17,6 @@ function App() {
     }, 0)
     ?.toFixed(2);
 
-  function endStore() {
-    dispatch(resetStore());
-  }
-
   return (
     <>
       <div className="w-screen h-screen">
@@ -44,9 +40,9 @@ function App() {
           </p>
           <button
             className="w-[30%] h-12 bg-red-500 rounded mr-6"
-            onClick={() => endStore()}
+            onClick={() => dispatch(resetStore())}
           >
-            <p className="text-xl   text-white">finalizar</p>
+            <p className="text-xl text-white">finalizar</p>
           </button>
         </div>
         {isCandyModalOpen && <NewCandy />}
