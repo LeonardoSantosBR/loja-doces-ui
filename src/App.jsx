@@ -2,8 +2,8 @@ import Header from "./components/header/header";
 import Candies from "./components/candies/candies";
 import NewCandy from "./components/modals/new-candy";
 import { useDispatch, useSelector } from "react-redux";
-import { turn } from "./slices/isCandyModalOpen.slice";
-import { resetStore } from "./slices/candies.slice";
+import { turn } from "./redux/slices/isCandyModalOpen.slice";
+import { resetStore } from "./redux/slices/candies.slice";
 
 function App() {
   const dispatch = useDispatch();

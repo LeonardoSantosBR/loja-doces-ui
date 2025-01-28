@@ -6,7 +6,7 @@ import {
   incrementQuantity,
   decrementQuantity,
   removeCandy,
-} from "../../slices/candies.slice";
+} from "../../redux/slices/candies.slice";
 
 function CandiesList() {
   const dispatch = useDispatch();
