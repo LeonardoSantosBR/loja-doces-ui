@@ -4,7 +4,7 @@ import NewCandy from "./components/modals/new-candy";
 import { useDispatch, useSelector } from "react-redux";
 import { turn } from "./redux/slices/isCandyModalOpen.slice";
 import FinishStore from "./components/buttons/finish-store";
-import TotalValue from "./components/total-value";
+import TotalValue from "./components/totalValue/total-value";
 
 function App() {
   const dispatch = useDispatch();
