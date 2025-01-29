@@ -4,10 +4,10 @@ import { addCandy } from "../../redux/slices/candies.slice";
 import { turn } from "../../redux/slices/isCandyModalOpen.slice";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
-import CreateNewCandy from "../buttons/create-new-candy";
+import CreateCandyButton from "../buttons/create-candy";
 import InputNewCandy from "../inputs/input-new-candy";
 
-function NewCandy() {
+function NewCandyModal() {
   const dispatch = useDispatch();
 
   const handleCreateNewCandy = (values, { setSubmitting }) => {
@@ -108,7 +108,7 @@ function NewCandy() {
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
-                    <CreateNewCandy />
+                    <CreateCandyButton />
                   </div>
                 </form>
               )}
@@ -120,4 +120,4 @@ function NewCandy() {
   );
 }
 
-export default NewCandy;
+export default NewCandyModal;

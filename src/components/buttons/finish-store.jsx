@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
 
-function FinishStore() {
+function FinishStoreButton() {
   const dispatch = useDispatch();
 
   return (
@@ -14,4 +14,4 @@ function FinishStore() {
   );
 }
 
-export default FinishStore;
+export default FinishStoreButton;
