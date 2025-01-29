@@ -3,19 +3,12 @@ import Candies from "./components/candies/candies";
 import NewCandy from "./components/modals/new-candy";
 import { useDispatch, useSelector } from "react-redux";
 import { turn } from "./redux/slices/isCandyModalOpen.slice";
-import { resetStore } from "./redux/slices/candies.slice";
+import FinishStore from "./components/buttons/finish-store";
+import TotalValue from "./components/totalValue/total-value";
 
 function App() {
   const dispatch = useDispatch();
-  const candies = useSelector((state) => state.candies.value);
   const isCandyModalOpen = useSelector((state) => state.isCandyModalOpen.value);
-
-  const totalValue = candies
-    ?.reduce((acc, cur) => {
-      const value = acc + cur.quantidade * Number(cur.preço.split("R$ ")[1]);
-      return value;
-    }, 0)
-    ?.toFixed(2);
 
   return (
     <>
@@ -35,15 +28,8 @@ function App() {
           </div>
         </div>
         <div className="w-screen h-[10%] bg-white flex items-center justify-between">
-          <p className="text-2xl font-bold font-sans ml-4">
-            TOTAL: {totalValue}
-          </p>
-          <button
-            className="w-[30%] h-12 bg-red-500 rounded mr-6"
-            onClick={() => dispatch(resetStore())}
-          >
-            <p className="text-xl text-white">finalizar</p>
-          </button>
+          <TotalValue />
+          <FinishStore />
         </div>
         {isCandyModalOpen && <NewCandy />}
       </div>
