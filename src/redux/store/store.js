@@ -4,12 +4,12 @@ import { persistStore } from "redux-persist";
 
 //Reducers
 import candiesPersistedReducer from "../persist/reducers/candies-persist-reducer";
-import isCandyModalOpenReducer from "../slices/isCandyModalOpen.slice";
+import isModalOpenReducer from "../slices/isModalOpen.slice";
 
 const store = configureStore({
   reducer: {
     candies: candiesPersistedReducer,
-    isCandyModalOpen: isCandyModalOpenReducer,
+    isModalOpen: isModalOpenReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

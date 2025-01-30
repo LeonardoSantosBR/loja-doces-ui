@@ -7,7 +7,7 @@ import NewCandyModal from "./components/modals/new-candy";
 import NewCandyButton from "./components/buttons/new-candy";
 
 function App() {
-  const isCandyModalOpen = useSelector((state) => state.isCandyModalOpen.value);
+  const isModalOpen = useSelector((state) => state.isModalOpen.value);
 
   return (
     <>
@@ -25,7 +25,7 @@ function App() {
           <TotalValue />
           <FinishStoreButton />
         </div>
-        {isCandyModalOpen && <NewCandyModal />}
+        {isModalOpen && <NewCandyModal />}
       </div>
     </>
   );
