@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { turn } from "../../redux/slices/new-modal-visible";
+import { turn } from "../../redux/slices/update-modal-visible";
 
-function NewCandyButton() {
+function UpdateCandyButton() {
   const dispatch = useDispatch();
 
   return (
@@ -9,9 +9,9 @@ function NewCandyButton() {
       className="w-32 h-12 bg-green-500 rounded mr-6"
       onClick={() => dispatch(turn())}
     >
-      <p className="text-xl  text-white">novo doce</p>
+      <p className="text-xl  text-white">editar</p>
     </button>
   );
 }
 
-export default NewCandyButton;
+export default UpdateCandyButton;
