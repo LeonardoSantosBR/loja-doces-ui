@@ -4,12 +4,16 @@ import { persistStore } from "redux-persist";
 
 //Reducers
 import candiesPersistedReducer from "../persist/reducers/candies-persist-reducer";
-import isCandyModalOpenReducer from "../slices/isCandyModalOpen.slice";
+import NewModalOpenSlice from "../slices/new-modal-visible";
+import UpdateModalVisibleSlice from "../slices/update-modal-visible";
+import candyIdSlice from "../slices/candy-id.slice";
 
 const store = configureStore({
   reducer: {
     candies: candiesPersistedReducer,
-    isCandyModalOpen: isCandyModalOpenReducer,
+    newModalVisible: NewModalOpenSlice,
+    updateModalVisible: UpdateModalVisibleSlice,
+    candyId: candyIdSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
