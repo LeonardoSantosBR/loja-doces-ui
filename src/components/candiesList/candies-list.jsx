@@ -21,10 +21,10 @@ function CandiesList() {
     (state) => state.updateModalVisible.value
   );
 
-  const updateCandy = (candy)=> {
-    dispatch(turn())
-    dispatch(setId(candy))
-  }
+  const updateCandy = (candy) => {
+    dispatch(turn());
+    dispatch(setId(candy));
+  };
 
   return (
     <tbody>
@@ -51,17 +51,17 @@ function CandiesList() {
                 className="cursor-pointer"
                 onClick={() => dispatch(decrementQuantity(candy))}
               />
-              <Trash2
-                color="#ff0000"
-                size={24}
-                className="cursor-pointer"
-                onClick={() => dispatch(removeCandy(candy))}
-              />
               <Pencil
                 color="#ca0aff"
                 size={24}
                 className="cursor-pointer"
                 onClick={() => dispatch(updateCandy(candy))}
+              />
+              <Trash2
+                color="#ff0000"
+                size={24}
+                className="cursor-pointer"
+                onClick={() => dispatch(removeCandy(candy))}
               />
             </div>
           </td>
