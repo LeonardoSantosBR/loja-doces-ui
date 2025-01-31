@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { turn } from "../../redux/slices/isCandyModalOpen.slice";
+import { turn } from "../../redux/slices/new-modal-visible";
 
 function NewCandyButton() {
   const dispatch = useDispatch();
