@@ -5,7 +5,6 @@ import { turn } from "../../redux/slices/update-modal-visible";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import UpdateCandyButton from "../buttons/update-candy";
-// import CreateCandyButton from "../buttons/create-candy";
 import InputNewCandy from "../inputs/input-new-candy";
 
 function UpdateCandyModal() {
