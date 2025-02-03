@@ -34,6 +34,14 @@ export const candiesSlice = createSlice({
         }
       }
     },
+    incrementManyQuantity: (state, actions) => {
+      const { id , quantidade } = actions.payload;
+      for (const candy of state.value) {
+        if (candy.id === id) {
+          candy.quantidade += quantidade;
+        }
+      }
+    },
     decrementQuantity: (state, actions) => {
       const { id } = actions.payload;
       for (const candy of state.value) {
@@ -58,6 +66,7 @@ export const {
   addCandy,
   updateCandy,
   incrementQuantity,
+  incrementManyQuantity,
   decrementQuantity,
   removeCandy,
   resetStore,

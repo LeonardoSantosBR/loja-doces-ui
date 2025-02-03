@@ -6,11 +6,11 @@ export const NewModalVisibleSlice = createSlice({
     value: false,
   },
   reducers: {
-    turn: (state) => {
+    turnNewModal: (state) => {
       state.value = !state.value;
     },
   },
 });
 
-export const { turn } = NewModalVisibleSlice.actions;
+export const { turnNewModal } = NewModalVisibleSlice.actions;
 export default NewModalVisibleSlice.reducer;
