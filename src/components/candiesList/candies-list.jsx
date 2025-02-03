@@ -4,7 +4,7 @@ import { Trash2 } from "lucide-react";
 import { Pencil } from "lucide-react";
 import { Grid2x2Plus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { turn } from "../../redux/slices/update-modal-visible";
+import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { turnIncrementManyModal } from "../../redux/slices/increment-many-modal-visible";
 import UpdateCandyModal from "../modals/update-candy";
 
@@ -26,10 +26,10 @@ function CandiesList() {
 
   const incrementManyModalVisible = useSelector(
     (state) => state.incrementManyVisible.value
-  )
+  );
 
   const updateCandy = (candy) => {
-    dispatch(turn());
+    dispatch(turnUpdateModal());
     dispatch(setId(candy));
   };
 
@@ -73,7 +73,7 @@ function CandiesList() {
                 color="#001dad"
                 size={24}
                 className="cursor-pointer"
-                onClick={()=> dispatch(incrementManyCandy(candy))}
+                onClick={() => dispatch(incrementManyCandy(candy))}
               />
               <Trash2
                 color="#ff0000"
