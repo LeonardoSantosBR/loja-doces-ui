@@ -1,11 +1,27 @@
-# Projeto social para lojistas de doces
+# Social project for candy shop owners
 
-Tive a ideia inicial de criar esse projeto para automatizar um caderno de anotações de vendas de doces da minha igreja. Nesse caderno digital, é possível adicionar os doces que estão sendo vendidos no dia e a quantidade de cada um, fazendo o cálculo total de arrecadação automaticamente.
+I initially came up with this project idea to automate a sales notebook for the candy sales at my church. In this digital notebook, users can add the candies being sold each day and their quantities, with the total revenue automatically calculated.
+
 </br>
-Utilizei libs como react, tailwindcss, react-redux, react-persist, formik, lucide-react para montar o projeto que atualmente só tem o front-end, estou planejando um futuro back-end para essa aplicação
 
-## Listagem dos doces registrados
-![Image](https://github.com/user-attachments/assets/050d26fa-b36f-416c-af07-7c36a4b29dce)
+I used libraries such as React, Tailwind CSS, React-Redux, React-Persist, Formik, and Lucide-React to build the project, which currently only has the front-end. I'm planning to develop a back-end for this application in the future.
 
-## Tela de adicionar doce
-![Image](https://github.com/user-attachments/assets/351b1e11-a3d7-49ff-a6b7-975a033cfa48)
+## List of registered candies
+<p>
+  <img src="https://github.com/user-attachments/assets/050d26fa-b36f-416c-af07-7c36a4b29dce" width="30%">
+  <img src="https://github.com/user-attachments/assets/351b1e11-a3d7-49ff-a6b7-975a033cfa48" width="30%">
+</p>
+
+# New updates on Wednesday, January 29th
+Now it is not necessary to delete the candy to change some information, the pen button is possible to change the candy name and price
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e000635f-1f52-4320-af2e-51cf81025bf1" width="30%">
+  <img src="https://github.com/user-attachments/assets/6777e3a6-78de-4fce-afd3-ef54eb6c927d" width="45%">
+</p>
+
+# New updates on Monday, February 3th
+On the first day of testing I noticed the need to add quantities in batches, as often a customer asks for, for example, many candies at once, and for this the button to increase many quantities at once
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/05d58599-f78e-4be7-83cc-807b9dde9d53" width="30%">
+  <img src="https://github.com/user-attachments/assets/bff70979-c2ed-4f11-8eff-5e76ba2d5517" width="30%">
+</p>
