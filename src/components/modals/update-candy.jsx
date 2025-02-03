@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCandy } from "../../redux/slices/candies.slice";
-import { turn } from "../../redux/slices/update-modal-visible";
+import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import UpdateCandyButton from "../buttons/update-candy";
@@ -13,8 +13,7 @@ function UpdateCandyModal() {
   const candyId = useSelector((state) => state.candyId.value);
 
   const handleUpdateCandy = (values, { setSubmitting }) => {
-    console.log(values)
-    dispatch(turn());
+    dispatch(turnUpdateModal());
     dispatch(updateCandy({ id: candyId, ...values }));
     setSubmitting(false);
   };
@@ -33,7 +32,7 @@ function UpdateCandyModal() {
       <div className="w-screen h-screen top-0 left-0 absolute bg-zinc-600/55 flex justify-center items-center">
         <div className="w-[70%] h-96 bg-amber-300 rounded">
           <div className="w-[100%] h-[10%] p-1 flex justify-end">
-            <X onClick={() => dispatch(turn())} />
+            <X onClick={() => dispatch(turnUpdateModal())} />
           </div>
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik

@@ -6,10 +6,10 @@ export const UpdateModalOpenSlice = createSlice({
     value: false,
   },
   reducers: {
-    turn: (state) => {
+    turnUpdateModal: (state) => {
       state.value = !state.value;
     },
   },
 });
-export const { turn } = UpdateModalOpenSlice.actions;
+export const { turnUpdateModal } = UpdateModalOpenSlice.actions;
 export default UpdateModalOpenSlice.reducer;

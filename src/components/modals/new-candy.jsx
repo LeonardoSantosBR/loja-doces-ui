@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addCandy } from "../../redux/slices/candies.slice";
-import { turn } from "../../redux/slices/new-modal-visible";
+import { turnNewModal } from "../../redux/slices/new-modal-visible";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import CreateCandyButton from "../buttons/create-candy";
@@ -11,7 +11,7 @@ function NewCandyModal() {
   const dispatch = useDispatch();
 
   const handleCreateNewCandy = (values, { setSubmitting }) => {
-    dispatch(turn());
+    dispatch(turnNewModal());
     dispatch(addCandy(values));
     setSubmitting(false);
   };
@@ -28,7 +28,7 @@ function NewCandyModal() {
       <div className="w-screen h-screen top-0 left-0 absolute bg-zinc-600/55 flex justify-center items-center">
         <div className="w-[70%] h-96 bg-amber-300 rounded">
           <div className="w-[100%] h-[10%] p-1 flex justify-end">
-            <X onClick={() => dispatch(turn())} />
+            <X onClick={() => dispatch(turnNewModal())} />
           </div>
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
