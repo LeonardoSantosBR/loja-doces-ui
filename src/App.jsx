@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
 import Header from "./components/header/header";
 import Candies from "./components/candies/candies";
 import FinishStoreButton from "./components/buttons/finish-store";
 import TotalValue from "./components/totalValue/total-value";
 import NewCandyModal from "./components/modals/new-candy";
 import NewCandyButton from "./components/buttons/new-candy";
+import { NewModalVisibleSelector } from "./selectors/new-modal-visble-selector";
 
 function App() {
-  const newModalVisible = useSelector((state) => state.newModalVisible.value);
+  const newModalVisible = NewModalVisibleSelector()
 
   return (
     <>
