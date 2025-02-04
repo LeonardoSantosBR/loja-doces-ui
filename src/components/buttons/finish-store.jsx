@@ -43,7 +43,7 @@ function FinishStoreButton() {
       if (result.isConfirmed) {
         generatePdf();
         Swal.fire("Loja finalizada!");
-        // dispatch(resetStore());
+        dispatch(resetStore());
       }
     });
   };
