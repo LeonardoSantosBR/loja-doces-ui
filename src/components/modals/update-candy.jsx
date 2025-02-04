@@ -1,16 +1,18 @@
 import { X } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateCandy } from "../../redux/slices/candies.slice";
 import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import UpdateCandyButton from "../buttons/update-candy";
 import InputNewCandy from "../inputs/input-new-candy";
+import { CandiesSelector } from "../../selectors/candies-selector";
+import { CandyIdSelector } from "../../selectors/candy-id-selector";
 
 function UpdateCandyModal() {
   const dispatch = useDispatch();
-  const candies = useSelector((state) => state.candies.value);
-  const candyId = useSelector((state) => state.candyId.value);
+  const candies = CandiesSelector();
+  const candyId = CandyIdSelector();
 
   const handleUpdateCandy = (values, { setSubmitting }) => {
     dispatch(turnUpdateModal());

@@ -1,32 +1,28 @@
+import { useDispatch } from "react-redux";
 import { CirclePlus } from "lucide-react";
 import { CircleMinus } from "lucide-react";
 import { Trash2 } from "lucide-react";
 import { Pencil } from "lucide-react";
 import { Grid2x2Plus } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
 import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { turnIncrementManyModal } from "../../redux/slices/increment-many-modal-visible";
-import UpdateCandyModal from "../modals/update-candy";
-
 import {
   incrementQuantity,
   decrementQuantity,
   removeCandy,
 } from "../../redux/slices/candies.slice";
 import { setId } from "../../redux/slices/candy-id.slice";
+import UpdateCandyModal from "../modals/update-candy";
 import IncrementManyModal from "../modals/increment-many";
+import { UpdateModalVisibleSelector } from "../../selectors/update-modal-visible-selector";
+import { CandiesSelector } from "../../selectors/candies-selector";
+import { IncrementManyModalVisibleSelector } from "../../selectors/increment-many-modal-visible-selector";
 
 function CandiesList() {
   const dispatch = useDispatch();
-  const candies = useSelector((state) => state.candies.value);
-
-  const updateModalVisible = useSelector(
-    (state) => state.updateModalVisible.value
-  );
-
-  const incrementManyModalVisible = useSelector(
-    (state) => state.incrementManyVisible.value
-  );
+  const candies = CandiesSelector();
+  const updateModalVisible = UpdateModalVisibleSelector();
+  const incrementManyModalVisible = IncrementManyModalVisibleSelector();
 
   const updateCandy = (candy) => {
     dispatch(turnUpdateModal());

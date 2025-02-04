@@ -1,15 +1,17 @@
 import { X } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { Formik } from "formik";
+import { useDispatch } from "react-redux";
 import { incrementManyQuantity } from "../../redux/slices/candies.slice";
 import { turnIncrementManyModal } from "../../redux/slices/increment-many-modal-visible";
-import { Formik } from "formik";
 import InputNewCandy from "../inputs/input-new-candy";
 import IncrementManyButton from "../buttons/increment-many";
+import { CandiesSelector } from "../../selectors/candies-selector";
+import { CandyIdSelector } from "../../selectors/candy-id-selector";
 
 function IncrementManyModal() {
   const dispatch = useDispatch();
-  const candies = useSelector((state) => state.candies.value);
-  const candyId = useSelector((state) => state.candyId.value);
+  const candies = CandiesSelector();
+  const candyId = CandyIdSelector();
 
   const handleIncrementMany = (values, { setSubmitting }) => {
     dispatch(turnIncrementManyModal());

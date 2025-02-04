@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { CandiesSelector } from "../../selectors/candies-selector";
 
 function TotalValue() {
-  const candies = useSelector((state) => state.candies.value);
+  const candies = CandiesSelector();
 
   const totalValue = candies
     ?.reduce((acc, cur) => {
