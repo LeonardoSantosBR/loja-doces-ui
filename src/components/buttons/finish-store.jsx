@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -13,12 +14,7 @@ function FinishStoreButton() {
   const generatePdf = () => {
     const doc = new jsPDF();
     const tablesColumn = ["Nome", "Quantidade", "Preço"];
-
-    const tableRows = candies.map((candy) => {
-      const candyValue = Object.values(candy);
-      candyValue.shift();
-      return candyValue;
-    });
+    const tableRows = candies.map(({ id, ...rest }) => Object.values(rest));
 
     const totalValue = candies
       ?.reduce((acc, cur) => {
