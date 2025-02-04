@@ -7,7 +7,7 @@ I initially came up with this project idea to automate a sales notebook for the 
 I used libraries such as React, Tailwind CSS, React-Redux, React-Persist, Formik, and Lucide-React to build the project, which currently only has the front-end. I'm planning to develop a back-end for this application in the future.
 
 ## List of registered candies
-<p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/050d26fa-b36f-416c-af07-7c36a4b29dce" width="30%">
   <img src="https://github.com/user-attachments/assets/351b1e11-a3d7-49ff-a6b7-975a033cfa48" width="30%">
 </p>
@@ -24,4 +24,10 @@ On the first day of testing I noticed the need to add quantities in batches, as 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/05d58599-f78e-4be7-83cc-807b9dde9d53" width="30%">
   <img src="https://github.com/user-attachments/assets/bff70979-c2ed-4f11-8eff-5e76ba2d5517" width="30%">
+</p>
+
+# New updates on Tuesday, February 4th
+I saw on the first day of testing that a security alert was necessary before finishing the store day, as it was very dangerous to accidentally press and reset all the data. I added an alert to confirm the action
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5d748843-398c-46e1-b556-881a1beea60a" width="30%">
 </p>
