@@ -1,36 +1,12 @@
-/* eslint-disable no-unused-vars */
 import Swal from "sweetalert2/dist/sweetalert2.js";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 import "sweetalert2/src/sweetalert2.scss";
 import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
-import { CandiesSelector } from "../../selectors/candies-selector";
+import { GeneratorPdf } from "../../functions/generate-pdf";
 
 function FinishStoreButton() {
   const dispatch = useDispatch();
-  const candies = CandiesSelector();
-
-  const generatePdf = () => {
-    const doc = new jsPDF();
-    const tablesColumn = ["Nome", "Quantidade", "Preço"];
-    const tableRows = candies.map(({ id, ...rest }) => Object.values(rest));
-
-    const totalValue = candies
-      ?.reduce((acc, cur) => {
-        const value = acc + cur.quantidade * Number(cur.preço.split("R$ ")[1]);
-        return value;
-      }, 0)
-      ?.toFixed(2);
-
-    doc.text(`Relatório do dia: R$: ${totalValue}`, 14, 10);
-    doc.autoTable({
-      head: [tablesColumn],
-      body: tableRows,
-      startY: 20,
-    });
-    doc.save("relatorio_vendas.pdf");
-  };
+  const generatePdf = GeneratorPdf(); 
 
   const finishStore = () => {
     Swal.fire({
