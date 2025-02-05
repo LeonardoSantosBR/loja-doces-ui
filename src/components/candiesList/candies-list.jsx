@@ -3,7 +3,7 @@ import IncrementManyModal from "../modals/increment-many";
 import { UpdateModalVisibleSelector } from "../../selectors/update-modal-visible-selector";
 import { CandiesSelector } from "../../selectors/candies-selector";
 import { IncrementManyModalVisibleSelector } from "../../selectors/increment-many-modal-visible-selector";
-import CandiesActions from "./candies-icons";
+import CandiesActions from "./candies-actions";
 
 function CandiesList() {
   const candies = CandiesSelector();
