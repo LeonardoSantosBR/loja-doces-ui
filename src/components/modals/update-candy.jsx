@@ -6,8 +6,8 @@ import { Formik } from "formik";
 import InputMask from "react-input-mask";
 import UpdateCandyButton from "../buttons/update-candy";
 import InputNewCandy from "../inputs/input-new-candy";
-import { CandiesSelector } from "../../selectors/candies-selector";
-import { CandyIdSelector } from "../../selectors/candy-id-selector";
+import { CandiesSelector } from "../../redux/selectors/candies-selector";
+import { CandyIdSelector } from "../../redux/selectors/candy-id-selector";
 
 function UpdateCandyModal() {
   const dispatch = useDispatch();

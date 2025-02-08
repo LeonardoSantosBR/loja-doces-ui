@@ -1,8 +1,8 @@
 import UpdateCandyModal from "../modals/update-candy";
 import IncrementManyModal from "../modals/increment-many";
-import { UpdateModalVisibleSelector } from "../../selectors/update-modal-visible-selector";
-import { CandiesSelector } from "../../selectors/candies-selector";
-import { IncrementManyModalVisibleSelector } from "../../selectors/increment-many-modal-visible-selector";
+import { UpdateModalVisibleSelector } from "../../redux/selectors/update-modal-visible-selector";
+import { CandiesSelector } from "../../redux/selectors/candies-selector";
+import { IncrementManyModalVisibleSelector } from "../../redux/selectors/increment-many-modal-visible-selector";
 import CandiesActions from "./candies-actions";
 
 function CandiesList() {
