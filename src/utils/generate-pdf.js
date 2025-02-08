@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import { CandiesSelector } from "../selectors/candies-selector";
+
+import { CandiesSelector } from "../redux/selectors/candies-selector";
 
 export function GeneratorPdf() {
   const candies = CandiesSelector();

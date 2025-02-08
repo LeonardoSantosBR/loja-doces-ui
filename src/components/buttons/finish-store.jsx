@@ -2,26 +2,36 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
 import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
-import { GeneratorPdf } from "../../functions/generate-pdf";
+import { GeneratorPdf } from "../../utils/generate-pdf";
+import { CandiesSelector } from "../../redux/selectors/candies-selector";
 
 function FinishStoreButton() {
   const dispatch = useDispatch();
-  const generatePdf = GeneratorPdf(); 
+  const candies = CandiesSelector();
+  const generatePdf = GeneratorPdf();
 
   const finishStore = () => {
-    Swal.fire({
-      title: "Tem certeza que deseja finalizar a loja?",
-      showDenyButton: true,
-      showCancelButton: false,
-      confirmButtonText: "Finalizar",
-      denyButtonText: `Voltar`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        generatePdf();
-        Swal.fire("Loja finalizada!");
-        dispatch(resetStore());
-      }
-    });
+    if (candies.length === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Loja vazia",
+        text: "Não é possivel finalizar a loja!",
+      });
+    } else {
+      Swal.fire({
+        title: "Tem certeza que deseja finalizar a loja?",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Finalizar",
+        denyButtonText: `Voltar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          generatePdf();
+          dispatch(resetStore());
+          Swal.fire("Loja finalizada!");
+        }
+      });
+    }
   };
 
   return (

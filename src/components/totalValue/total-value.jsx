@@ -1,4 +1,4 @@
-import { CandiesSelector } from "../../selectors/candies-selector";
+import { CandiesSelector } from "../../redux/selectors/candies-selector";
 
 function TotalValue() {
   const candies = CandiesSelector();
