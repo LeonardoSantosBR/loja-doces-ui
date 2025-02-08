@@ -31,3 +31,9 @@ I saw on the first day of testing that a security alert was necessary before fin
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5d748843-398c-46e1-b556-881a1beea60a" width="30%">
 </p>
+
+# New updates on Saturday, February 8th
+I created a PDF generator, listing all the sweets that were sold as soon as the store is finished by the user, a way to generate a report of the day
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a587eea1-c948-4196-a05d-4d6e485649fb" width="50%">
+</p>
