@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
 import { GeneratorPdf } from "../../utils/generate-pdf";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
-
 function FinishStoreButton() {
   const dispatch = useDispatch();
   const candies = CandiesSelector();
@@ -24,7 +23,7 @@ function FinishStoreButton() {
         showCancelButton: false,
         confirmButtonText: "Finalizar",
         denyButtonText: `Voltar`,
-      }).then((result) => {
+      }).then((result: any) => {
         if (result.isConfirmed) {
           generatePdf();
           dispatch(resetStore());
