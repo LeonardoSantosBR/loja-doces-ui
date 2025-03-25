@@ -8,7 +8,7 @@ export function GeneratorPdf() {
   const candies = CandiesSelector();
 
   const generatePdf = () => {
-    const doc = new jsPDF();
+    const doc: any = new jsPDF();
     const tablesColumn = ["Nome", "Quantidade", "Preço"];
     const tableRows = candies.map(({ id, ...rest }) => Object.values(rest));
     const totalValue = candies
