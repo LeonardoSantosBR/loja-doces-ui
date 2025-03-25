@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
+import { initialState } from "./interfaces";
 
 export const candiesSlice = createSlice({
   name: "candies",
-  initialState: {
-    value: [],
-  },
+  initialState,
   reducers: {
     addCandy: (state, actions) => {
       const id = uuidv4();
@@ -35,7 +34,7 @@ export const candiesSlice = createSlice({
       }
     },
     incrementManyQuantity: (state, actions) => {
-      const { id , quantidade } = actions.payload;
+      const { id, quantidade } = actions.payload;
       for (const candy of state.value) {
         if (candy.id === id) {
           candy.quantidade += quantidade;
