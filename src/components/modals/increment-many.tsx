@@ -7,25 +7,31 @@ import InputNewCandy from "../inputs/input-new-candy";
 import IncrementManyButton from "../buttons/increment-many";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
 import { CandyIdSelector } from "../../redux/selectors/candy-id-selector";
+import { Icandies } from "../interfaces";
 
 function IncrementManyModal() {
   const dispatch = useDispatch();
   const candies = CandiesSelector();
   const candyId = CandyIdSelector();
 
-  const handleIncrementMany = (values, { setSubmitting }) => {
+  const handleIncrementMany = (
+    values: { quantidade: number },
+    { setSubmitting }: any
+  ): any => {
     dispatch(turnIncrementManyModal());
     dispatch(incrementManyQuantity({ id: candyId, ...values }));
     setSubmitting(false);
   };
 
-  const validateValues = (values) => {
-    const errors = {};
-    if (!values.quantidade) errors.nome = "Obrigatório";
+  const validateValues = (values: { quantidade: string }) => {
+    const errors: { quantidade?: string } = {};
+    if (!values.quantidade) errors.quantidade = "Obrigatório";
     return errors;
   };
 
-  const candySelected = candies?.filter((candy) => candy.id === candyId)[0];
+  const candySelected = candies?.filter(
+    (candy: Icandies) => candy.id === candyId
+  )[0];
 
   return (
     <>
@@ -37,7 +43,7 @@ function IncrementManyModal() {
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
               initialValues={{
-                quantidade: candySelected.nome,
+                quantidade: candySelected.quantidade,
               }}
               validate={validateValues}
               onSubmit={handleIncrementMany}
@@ -62,14 +68,14 @@ function IncrementManyModal() {
                         placeholder="Ex: 10"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.nome}
+                        value={values.quantidade}
                         className={`
                           w-full 
                           p-2 
                           border
                            outline-none 
                            ${
-                             errors.nome && touched.nome
+                             errors.quantidade && touched.quantidade
                                ? "border-red-600 border-y-2"
                                : "border-gray-300"
                            } rounded`}

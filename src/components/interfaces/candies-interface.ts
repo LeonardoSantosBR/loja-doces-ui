@@ -1,5 +1,5 @@
 export interface Icandies {
-  id: string;
+  id?: string;
   nome: string;
   quantidade: number;
   preço: number;
