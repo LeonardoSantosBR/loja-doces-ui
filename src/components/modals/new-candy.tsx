@@ -7,6 +7,11 @@ import InputMask from "react-input-mask";
 import CreateCandyButton from "../buttons/create-candy";
 import InputNewCandy from "../inputs/input-new-candy";
 
+interface errorValues {
+  nome?: string;
+  preço?: string | null;
+}
+
 function NewCandyModal() {
   const dispatch = useDispatch();
 
@@ -16,8 +21,8 @@ function NewCandyModal() {
     setSubmitting(false);
   };
 
-  const validateValues = (values) => {
-    const errors = {};
+  const validateValues = (values: errorValues) => {
+    const errors: errorValues = {};
     if (!values.nome) errors.nome = "Obrigatório";
     if (!values.preço) errors.preço = "Obrigatório";
     return errors;
@@ -77,7 +82,7 @@ function NewCandyModal() {
                         type="number"
                         name="quantidade"
                         min={0}
-                        max={100}                        
+                        max={100}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.quantidade}
