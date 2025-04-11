@@ -1,11 +1,12 @@
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
+import { Icandies } from "../interfaces";
 
 function TotalValue() {
   const candies = CandiesSelector();
   console.log(candies);
 
   const totalValue = candies
-    ?.reduce((acc, cur) => {
+    ?.reduce((acc: number, cur: Icandies) => {
       const value = acc + cur.quantidade * cur.preço;
       return value;
     }, 0)
