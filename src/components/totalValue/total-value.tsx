@@ -2,10 +2,11 @@ import { CandiesSelector } from "../../redux/selectors/candies-selector";
 
 function TotalValue() {
   const candies = CandiesSelector();
+  console.log(candies);
 
   const totalValue = candies
     ?.reduce((acc, cur) => {
-      const value = acc + cur.quantidade * Number(cur.preço.split("R$ ")[1]);
+      const value = acc + cur.quantidade * cur.preço;
       return value;
     }, 0)
     ?.toFixed(2);

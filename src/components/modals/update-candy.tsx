@@ -3,31 +3,34 @@ import { useDispatch } from "react-redux";
 import { updateCandy } from "../../redux/slices/candies.slice";
 import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { Formik } from "formik";
-import InputMask from "react-input-mask";
+import { NumericFormat } from "react-number-format";
 import UpdateCandyButton from "../buttons/update-candy";
 import InputNewCandy from "../inputs/input-new-candy";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
 import { CandyIdSelector } from "../../redux/selectors/candy-id-selector";
+import { Icandies, IvalidateValues } from "../interfaces";
 
 function UpdateCandyModal() {
   const dispatch = useDispatch();
   const candies = CandiesSelector();
   const candyId = CandyIdSelector();
 
-  const handleUpdateCandy = (values, { setSubmitting }) => {
+  const handleUpdateCandy = (values: any, { setSubmitting }: any) => {
     dispatch(turnUpdateModal());
     dispatch(updateCandy({ id: candyId, ...values }));
     setSubmitting(false);
   };
 
-  const validateValues = (values) => {
-    const errors = {};
+  const validateValues = (values: IvalidateValues) => {
+    const errors: IvalidateValues = {};
     if (!values.nome) errors.nome = "Obrigatório";
     if (!values.preço) errors.preço = "Obrigatório";
     return errors;
   };
 
-  const candySelected = candies?.filter((candy) => candy.id === candyId)[0];
+  const candySelected = candies?.filter(
+    (candy: Icandies) => candy.id === candyId
+  )[0];
 
   return (
     <>
@@ -80,15 +83,21 @@ function UpdateCandyModal() {
                     </div>
                     <div className="mb-4">
                       <h3 className="text-gray-950 text-lg font-bold">Preço</h3>
-                      <InputMask
-                        type="string"
+                      <NumericFormat
                         name="preço"
-                        mask="R$ 99.99"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
                         value={values.preço}
-                        placeholder="R$ 00,00"
-                        maskPlaceholder={null}
+                        onValueChange={(val) =>
+                          handleChange({
+                            target: { name: "preço", value: val.floatValue },
+                          })
+                        }
+                        thousandSeparator="."
+                        decimalSeparator=","
+                        prefix="R$ "
+                        decimalScale={2}
+                        fixedDecimalScale
+                        allowNegative={false}
+                        placeholder="R$ 0,00"
                         className={`w-full p-2 border outline-none ${
                           errors.preço && touched.preço
                             ? "border-red-600 border-y-2"

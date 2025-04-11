@@ -1,1 +1,2 @@
-export * from "./candies-interface";
+export * from "./Icandies-interface";
+export * from "./ivalidate-values";
