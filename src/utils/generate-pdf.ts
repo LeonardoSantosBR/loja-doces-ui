@@ -10,7 +10,9 @@ export function GeneratorPdf() {
   const generatePdf = () => {
     const doc: any = new jsPDF();
     const tablesColumn = ["Nome", "Quantidade", "Preço"];
-    const tableRows = candies.map(({ id, ...rest }) => Object.values(rest));
+    const tableRows = candies.map(({ id, ...rest }: { id: number }) =>
+      Object.values(rest)
+    );
     const totalValue = candies
       ?.reduce((acc, cur) => {
         const value = acc + cur.quantidade * Number(cur.preço.split("R$ ")[1]);
