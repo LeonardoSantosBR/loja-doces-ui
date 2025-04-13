@@ -3,6 +3,7 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 import { CandiesSelector } from "../redux/selectors/candies-selector";
+import { Icandies } from "../components/interfaces";
 
 export function GeneratorPdf() {
   const candies = CandiesSelector();
@@ -10,10 +11,12 @@ export function GeneratorPdf() {
   const generatePdf = () => {
     const doc: any = new jsPDF();
     const tablesColumn = ["Nome", "Quantidade", "Preço"];
-    const tableRows = candies.map(({ id, ...rest }) => Object.values(rest));
+    const tableRows = candies.map(({ id, ...rest }: { id: any; rest: any }) =>
+      Object.values(rest)
+    );
     const totalValue = candies
-      ?.reduce((acc, cur) => {
-        const value = acc + cur.quantidade * Number(cur.preço.split("R$ ")[1]);
+      ?.reduce((acc: number, cur: Icandies) => {
+        const value = acc + cur.quantidade * cur.preço;
         return value;
       }, 0)
       ?.toFixed(2);
