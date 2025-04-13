@@ -4,10 +4,13 @@ import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
 import { GeneratorPdf } from "../../utils/generate-pdf";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
+import { GoogleDriveService } from "../../services/google/drive-service";
+
 function FinishStoreButton() {
+  const googleDriveService = new GoogleDriveService();
   const dispatch = useDispatch();
   const candies = CandiesSelector();
-  const generatePdf = GeneratorPdf();
+  const generatePdf = new GeneratorPdf(googleDriveService);
 
   const finishStore = () => {
     if (candies.length === 0) {
@@ -25,7 +28,7 @@ function FinishStoreButton() {
         denyButtonText: `Voltar`,
       }).then((result: any) => {
         if (result.isConfirmed) {
-          generatePdf();
+          generatePdf.generate();
           dispatch(resetStore());
           Swal.fire("Loja finalizada!");
         }

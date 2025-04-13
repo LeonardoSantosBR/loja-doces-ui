@@ -3,7 +3,6 @@ import { Icandies } from "../interfaces";
 
 function TotalValue() {
   const candies = CandiesSelector();
-  console.log(candies);
 
   const totalValue = candies
     ?.reduce((acc: number, cur: Icandies) => {

@@ -4,31 +4,41 @@ import "jspdf-autotable";
 
 import { CandiesSelector } from "../redux/selectors/candies-selector";
 import { Icandies } from "../components/interfaces";
+import { GoogleDriveService } from "../services/google/drive-service";
 
-export function GeneratorPdf() {
-  const candies = CandiesSelector();
+export class GeneratorPdf {
+  private candies: Icandies[];
 
-  const generatePdf = () => {
+  constructor(private readonly googleDriveService: GoogleDriveService) {
+    this.candies = CandiesSelector();
+  }
+
+  private getTotalValue(): string {
+    const total = this.candies.reduce((acc: number, cur: Icandies) => {
+      return acc + cur.quantidade * cur.preço;
+    }, 0);
+    return total.toFixed(2);
+  }
+
+  private getTableRows(): any[][] {
+    return this.candies.map(({ id, ...rest }) => Object.values(rest));
+  }
+
+  public generate(): void {
     const doc: any = new jsPDF();
-    const tablesColumn = ["Nome", "Quantidade", "Preço"];
-    const tableRows = candies.map(({ id, ...rest }: { id: any; rest: any }) =>
-      Object.values(rest)
-    );
-    const totalValue = candies
-      ?.reduce((acc: number, cur: Icandies) => {
-        const value = acc + cur.quantidade * cur.preço;
-        return value;
-      }, 0)
-      ?.toFixed(2);
+    const tableColumns = ["Nome", "Quantidade", "Preço"];
+    const tableRows = this.getTableRows();
+    const totalValue = this.getTotalValue();
 
     doc.text(`Relatório do dia: R$: ${totalValue}`, 14, 10);
     doc.autoTable({
-      head: [tablesColumn],
+      head: [tableColumns],
       body: tableRows,
       startY: 20,
     });
-    doc.save("relatorio_vendas.pdf");
-  };
 
-  return generatePdf;
+    const pdfBlob = doc.output("blob");
+
+    doc.save("relatorio_vendas.pdf");
+  }
 }
