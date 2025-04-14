@@ -4,6 +4,7 @@ import { UpdateModalVisibleSelector } from "../../redux/selectors/update-modal-v
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
 import { IncrementManyModalVisibleSelector } from "../../redux/selectors/increment-many-modal-visible-selector";
 import CandiesActions from "./candies-actions";
+import { Icandies } from "../interfaces";
 
 function CandiesList() {
   const candies = CandiesSelector();
@@ -12,7 +13,7 @@ function CandiesList() {
 
   return (
     <tbody>
-      {candies?.map((candy) => (
+      {candies?.map((candy: Icandies) => (
         <tr key={candy.id} className="text-center">
           <td className="border border-gray-300 px-4 py-2 font-bold">
             {candy.nome}

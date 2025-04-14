@@ -15,16 +15,17 @@ import {
 import { turnUpdateModal } from "../../redux/slices/update-modal-visible";
 import { turnIncrementManyModal } from "../../redux/slices/increment-many-modal-visible";
 import { setId } from "../../redux/slices/candy-id.slice";
+import { Icandies } from "../interfaces";
 
-function CandiesActions({candySelected}) {
+function CandiesActions({ candySelected }: any) {
   const dispatch = useDispatch();
 
-  const updateCandy = (candy) => {
+  const updateCandy = (candy: Icandies): any => {
     dispatch(turnUpdateModal());
     dispatch(setId(candy));
   };
 
-  const incrementManyCandy = (candy) => {
+  const incrementManyCandy = (candy: Icandies): any => {
     dispatch(turnIncrementManyModal());
     dispatch(setId(candy));
   };
