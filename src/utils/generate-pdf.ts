@@ -4,12 +4,11 @@ import "jspdf-autotable";
 
 import { CandiesSelector } from "../redux/selectors/candies-selector";
 import { Icandies } from "../components/interfaces";
-import { GoogleDriveService } from "../services/google/drive-service";
 
 export class GeneratorPdf {
   private candies: Icandies[];
 
-  constructor(private readonly googleDriveService: GoogleDriveService) {
+  constructor() {
     this.candies = CandiesSelector();
   }
 
@@ -38,6 +37,7 @@ export class GeneratorPdf {
     });
 
     const pdfBlob = doc.output("blob");
+    console.log(pdfBlob);
 
     doc.save("relatorio_vendas.pdf");
   }
