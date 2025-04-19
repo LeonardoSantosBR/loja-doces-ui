@@ -12,7 +12,7 @@ function TotalValue() {
     ?.toFixed(2);
 
   return (
-    <p className="text-2xl font-bold font-sans ml-4">TOTAL: {totalValue}</p>
+    <p className="text-2xl font-bold font-sans ml-4">TOTAL: {String(totalValue).replace(".", ",")}</p>
   );
 }
 
