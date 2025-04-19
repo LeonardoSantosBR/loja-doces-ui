@@ -21,7 +21,7 @@ function CandiesList() {
           <td className="border border-gray-300 px-4 py-2">
             {candy.quantidade}
           </td>
-          <td className="border border-gray-300 px-4 py-2">{candy.preço}</td>
+          <td className="border border-gray-300 px-4 py-2">{candy.preço.toFixed(2)}</td>
           <td className="border border-gray-300 px-4 py-2">
             <div id="icons" className="flex justify-center gap-3">
               <CandiesActions candySelected={candy} />

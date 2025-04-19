@@ -1,2 +1,2 @@
 export * from "./Icandies-interface";
-export * from "./ivalidate-values";
+export * from "./Ivalidate-values";
