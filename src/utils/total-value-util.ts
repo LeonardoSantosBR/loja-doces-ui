@@ -9,10 +9,10 @@ export class TotalValueUtil {
     }
 
     public getTotalValue(): string {
-        const total = this.candies.reduce((acc: number, cur: Icandies) => {
-          return acc + cur.quantidade * cur.preço;
-        }, 0);
+      const total = this.candies.reduce((acc: number, cur: Icandies) => {
+        return acc + cur.quantidade * cur.preço;
+      }, 0);
 
-        return total.toFixed(2);
+      return total.toFixed(2);
     }
 }
