@@ -1,18 +1,10 @@
-import { CandiesSelector } from "../../redux/selectors/candies-selector";
-import { Icandies } from "../interfaces";
+import { TotalValueUtil } from "../../utils/total-value-util";
 
 function TotalValue() {
-  const candies = CandiesSelector();
-
-  const totalValue = candies
-    ?.reduce((acc: number, cur: Icandies) => {
-      const value = acc + cur.quantidade * cur.preço;
-      return value;
-    }, 0)
-    ?.toFixed(2);
+  const totalValue = new TotalValueUtil();
 
   return (
-    <p className="text-2xl font-bold font-sans ml-4">TOTAL: {String(totalValue).replace(".", ",")}</p>
+    <p className="text-2xl font-bold font-sans ml-4">TOTAL: {String(totalValue.getTotalValue()).replace(".", ",")}</p>
   );
 }
 

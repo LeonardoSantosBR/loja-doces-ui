@@ -5,9 +5,8 @@ import { incrementManyQuantity } from "../../redux/slices/candies.slice";
 import { turnIncrementManyModal } from "../../redux/slices/increment-many-modal-visible";
 import InputNewCandy from "../inputs/input-new-candy";
 import IncrementManyButton from "../buttons/increment-many";
-import { CandiesSelector } from "../../redux/selectors/candies-selector";
 import { CandyIdSelector } from "../../redux/selectors/candy-id-selector";
-import { Icandies, IvalidateValues } from "../interfaces";
+import { IvalidateValues } from "../interfaces";
 
 function IncrementManyModal() {
   const dispatch = useDispatch();
