@@ -7,11 +7,10 @@ import InputNewCandy from "../inputs/input-new-candy";
 import IncrementManyButton from "../buttons/increment-many";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
 import { CandyIdSelector } from "../../redux/selectors/candy-id-selector";
-import { Icandies } from "../interfaces";
+import { Icandies, IvalidateValues } from "../interfaces";
 
 function IncrementManyModal() {
   const dispatch = useDispatch();
-  const candies = CandiesSelector();
   const candyId = CandyIdSelector();
 
   const handleIncrementMany = (
@@ -23,15 +22,11 @@ function IncrementManyModal() {
     setSubmitting(false);
   };
 
-  const validateValues = (values: { quantidade: string }) => {
-    const errors: { quantidade?: string } = {};
+  const validateValues = (values:  IvalidateValues) => {
+    const errors: IvalidateValues= {};
     if (!values.quantidade) errors.quantidade = "Obrigatório";
     return errors;
   };
-
-  const candySelected = candies?.filter(
-    (candy: Icandies) => candy.id === candyId
-  )[0];
 
   return (
     <>
@@ -43,7 +38,7 @@ function IncrementManyModal() {
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
               initialValues={{
-                quantidade: candySelected.quantidade,
+                quantidade: 0,
               }}
               validate={validateValues}
               onSubmit={handleIncrementMany}
