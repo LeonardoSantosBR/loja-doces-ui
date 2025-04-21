@@ -2,13 +2,13 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
 import { useDispatch } from "react-redux";
 import { resetStore } from "../../redux/slices/candies.slice";
-import { GeneratorPdf } from "../../utils/generate-pdf";
+import { GeneratorPdfUtil } from "../../utils/generate-pdf-util";
 import { CandiesSelector } from "../../redux/selectors/candies-selector";
 
 function FinishStoreButton() {
   const dispatch = useDispatch();
   const candies = CandiesSelector();
-  const generatePdf = new GeneratorPdf();
+  const generatePdf = new GeneratorPdfUtil();
 
   const finishStore = () => {
     if (candies.length === 0) {
