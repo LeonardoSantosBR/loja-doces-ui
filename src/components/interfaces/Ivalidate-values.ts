@@ -1,5 +1,5 @@
 export interface IvalidateValues {
   nome?: string;
-  preço?: string | null;
+  preço?: number | null;
   quantidade?: number | string | null;
 }

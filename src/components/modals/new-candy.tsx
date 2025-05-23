@@ -20,7 +20,7 @@ function NewCandyModal() {
   const validateValues = (values: IvalidateValues) => {
     const errors: IvalidateValues = {};
     if (!values.nome) errors.nome = "Obrigatório";
-    if (!values.preço) errors.preço = "Obrigatório";
+    if (!values.preço) values.preço = 0;
     return errors;
   };
 
@@ -33,7 +33,7 @@ function NewCandyModal() {
           </div>
           <div className="w-[100%] h-[100%] bg-slate-100 p-2">
             <Formik
-              initialValues={{ nome: "", quantidade: 0, preço: null }}
+              initialValues={{ nome: "", quantidade: 0, preço: 0 }}
               validate={validateValues}
               onSubmit={handleCreateNewCandy}
             >
@@ -91,27 +91,6 @@ function NewCandyModal() {
                     </div>
                     <div className="mb-4">
                       <h3 className="text-gray-950 text-lg font-bold">Preço</h3>
-                      <NumericFormat
-                        name="preço"
-                        value={values.preço}
-                        onValueChange={(val) =>
-                          handleChange({
-                            target: { name: "preço", value: val.floatValue },
-                          })
-                        }
-                        thousandSeparator="."
-                        decimalSeparator=","
-                        prefix="R$ "
-                        decimalScale={2}
-                        fixedDecimalScale
-                        allowNegative={false}
-                        placeholder="R$ 0,00"
-                        className={`w-full p-2 border outline-none ${
-                          errors.preço && touched.preço
-                            ? "border-red-600 border-y-2"
-                            : "border-gray-300"
-                        } rounded`}
-                      />
                     </div>
                   </div>
                   <div className="flex justify-center items-center">
